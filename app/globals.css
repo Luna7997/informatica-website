@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #f2f2f2;
+  --primary: #00bfff;
+  --primary-dark: #0090ff;
+  --secondary: #8a2be2;
+  --accent: #ff3e81;
+  --muted: #9ca3af;
+  --card-bg: #151515;
+  --border-color: #333;
+  --highlight: #222;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-card-bg: var(--card-bg);
+  --color-border: var(--border-color);
+  --color-highlight: var(--highlight);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-inter);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #f2f2f2;
+    --primary: #00bfff;
+    --primary-dark: #0090ff;
+    --secondary: #8a2be2;
+    --accent: #ff3e81;
+    --muted: #9ca3af;
+    --card-bg: #151515;
+    --border-color: #333;
+    --highlight: #222;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  /* 코드 관련 스타일 추가 */
+  code {
+    @apply bg-card-bg text-primary px-1.5 py-0.5 rounded font-mono;
+  }
+  
+  /* 버튼 기본 스타일 */
+  button, .btn {
+    @apply transition-all duration-200;
+  }
+  
+  /* 링크 스타일 */
+  a:not(.btn) {
+    @apply text-primary hover:text-primary-dark transition-colors;
+  }
+}
+
+/* 디지털 코드 효과 클래스 */
+.code-pattern {
+  background-image: radial-gradient(var(--primary) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.05;
+}
+
+/* 네온 효과 */
+.neon-text {
+  text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
+}
+
+.neon-border {
+  box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
+}
+
+/* 코드 편집기 스타일 요소 */
+.code-block {
+  @apply bg-card-bg border border-[var(--border-color)] rounded-md p-4 font-mono overflow-x-auto;
+}
+
+/* 푸터 스타일 재정의 */
+footer {
+  @apply bg-black text-foreground;
+}
